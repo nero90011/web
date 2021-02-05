@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-05-28 15:13:17
+ * @LastEditTime: 2020-03-20 22:04:05
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07_3点运算符</title>
+</head>
+<body>
+<!--
+* 用途
+1. rest(可变)参数来取代arguments 但比 arguments 灵活,只能是最后部分形参参数
+    * 用
+    function fun(...values) {
+        console.log(arguments);
+        arguments.forEach(function (item, index) {
+            console.log(item, index);
+        });
+        console.log(values);
+        values.forEach(function (item, index) {
+            console.log(item, index);
+        })
+    }
+    fun(1,2,3);
+2. 扩展运算符
+  let arr1 = [1,3,5];
+  let arr2 = [2,...arr1,6];
+  arr2.push(...arr1);
+3.日期
+4.如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。
+5.可以将实现了遍历器接口的对象转换成真正的数组
+6.基于某个条件为对象设置属性**
+    let MyProperty='nero';
+    const myObject ={...myProperty && {propName:myProperty}};
+7.合并对象 浅层合并
+    支持无线合并,但如果对象之间存在相同属性,后面的属性会覆盖前面的属性
+    const mergedObject={...objectOne,...objectTwo};
+    
+
+-->
+<script type="text/javascript">
+    function foo(a, b) {
+        console.log(arguments);
+        // arguments.callee指向函数本身
+        /* arguments.forEach(function () {
+
+        }) */// 伪数组不具有数组的一般方法
+    }
+    // ...运算符
+    function foo1(...value) {
+        console.log(arguments);
+        console.log(value);
+        value.forEach(function (item, index) { // 真数组,可以使用一般的数组方法
+            console.log(item, index);
+        });
+    }
+    foo1(2, 65, 3, 44);
+    // 和普通形参配合
+    function foo2(a, ...value) { // a=2 ,其他给...,...必须放在最后
+        console.log(arguments);
+        console.log(value);
+        value.forEach(function (item, index) { // 真数组,可以使用一般的数组方法
+            console.log(item, index);
+        });
+    }
+    foo2(2, 65, 3, 44);
+    // 扩展运算符
+    let arr = [1, 2];
+    let arr1 = [2, 3, 4, 6];
+    let arr2 = [1, ...arr1, 2];
+    console.log(arr2);
+
+    // 日期
+    let date = new Date(...[2016, 1, 1]);
+    console.log(date);
+    // 将字符串转为真正的数组
+    let arr0 = [...'hello'];
+    console.log(arr0);
+    // 正确返回字符串长度的函数
+    // 上面的写法，有一个重要的好处，那就是能够正确识别四个字节的 Unicode 字符。
+    function length(str) {
+        return [...str].length;
+    }
+    console.log(length('x\uD83D\uDE80y'));
+    // 用扩展运算符转为真正的数组。
+    // let nodeList = document.querySelectorAll('div');
+    // let array = [...nodeList];
+</script>
+
+</body>
+</html>

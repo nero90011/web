@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-05-28 15:13:17
+ * @LastEditTime: 2019-08-18 19:48:29
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>async函数</title>
+</head>
+<body>
+
+<!--
+  async函数(源自ES2017)
+  概念： 真正意义上去解决异步回调的问题，同步流程表达异步操作
+  语法：
+      async function foo(){
+        await 异步操作;
+        await 异步操作；
+      }
+  知识点:
+      1.含义:
+        是generator函数的语法糖 
+        使用了async内置执行器无需调用next方法进行逐步调用
+        返回值是promise
+        将*变成async  将yield替换成await
+        async后面可以是promise对象或者原始类型的数值 (会立即转换成resolved的promise对象)
+        async函数完全可以看作多个异步操作，包装成的一个 Promise 对象，而await命令就是内部then命令的语法糖。
+      2.基本用法: 例一 
+      3.返回promise对象
+          async内部return语句返回的值 会成为then方法回调函数的参数
+          async内部throw 的错误 会被catch方法回调函数接收到
+      4.promise对象的状态变化
+          promise对象的状态 必须等待所有await命令后的promise对象执行完才会发生状态改变
+          除非遇到return语句或者抛出错误。
+          也就是说，只有async函数内部的异步操作执行完，
+          才会执行then方法指定的回调函数。
+      5.await命令
+          5.1正常情况下await命令后是一个promise 对象
+          5.2如果不是promise对象就会直接返回对应的值
+            return await 123相当于return 123
+          5.3特殊: await命令后是一个thenable对象(有定义then方法的对象),await会将其等同于promise对象
+            如:
+              class Sleep{then(){}}
+              (async()=>{const sleepTime=await new Sleep)(1000)})
+            用途:程序休眠方法
+              function sleep(interval) {
+                return new Promise(resolve => {
+                  setTimeout(resolve, interval);
+                })
+              }
+              // 用法
+              async function one2FiveInAsync() {
+                for(let i = 1; i <= 5; i++) {
+                  console.log(i);
+                  await sleep(1000);
+                }
+              }
+              one2FiveInAsync();
+          5.4await只能在async中使用其他函数会报错
+          5.5forEach方法的参数改成async函数也会有问题
+              应该使用for循环
+        6 await promise.reject() 的参数会被catch方法的回调函数收到
+          任何一个await语句后面的promise对象变为reject状态 整个async函数都会中断执行
+          如果希望不中断则可以
+              使用trycatch 包裹 单个的reject语句
+              或者 awiat Promise.reject('出错误了').catch(()=>{})来处理前面的错误
+          
+        7错误处理
+          如果await后面的异步操作出错,则等同于async函数返回的promise对象呗reject
+            try{
+                await new Promise((resolv,reject)=>{throw new Error('...')})
+            }catch(e){
+              return await('hello world')
+            }
+            //for 重复尝试操作
+            //await操作成功则使用break语句退出循环,失败背catch捕捉,进入下一轮循环
+            for(i=0;i<10;++i){
+              try{
+                await do.get('...')
+                break;
+              }catch(e){
+              }
+            }
+        8如果不存在继发关系最好让他们同时触发:
+          写法一: 可能会被reject影响
+            let [foo,bar]=await Promise.all([getFoo(),getBar()])
+          写法二: 可以使用catch防止reject影响
+            let fooPromise = getFoo();
+            let barPromise = getBar();
+            let foo = await fooPromise;
+            let bar = await barPromise;    
+          写法三: 使用map  和 push
+            let promises=docs.map((dpc)=>db.post(doc));
+            for(let promise of promises){
+              results.push(await promise);
+            }
+        9async函数可以保留运行堆栈
+            const a=async ()=>{
+              await b();
+              c();
+            }
+            //b()运行的时候，a()是暂停执行，上下文环境都保存着。
+            一旦b()或c()报错，错误堆栈将包括a()。
+        10按顺序王城异步操作  一次读取远程的一组url
+            async function read(urls){
+              for(const url of urls){
+                const response =await fetch(url);
+                console.log(await response.text());
+              }
+            }
+
+-->
+<script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+    /* 例1 延迟之后输出一个值 */
+    async function timeout(ms) {
+      return new Promise(resolve => {
+        setTimeout(resolve, ms);//多少ms后将promise的状态变成resolve
+      })
+    }
+    
+    async function asyncPrint(value, ms) {
+      console.log('函数执行', new Date().toTimeString());
+      await timeout(ms);
+      console.log('延时时间', new Date().toTimeString());
+      console.log(value);
+    }
+    
+    console.log(asyncPrint('hello async', 2000));
+    /* async 使用形式 */
+    // 函数声明
+      async function foo() {}
+
+      // 函数表达式
+      const foo = async function () {};
+
+      // 对象的方法
+      let obj = { async foo() {} };
+      obj.foo().then(...)
+
+      // Class 的方法
+      class Storage {
+        constructor() {
+          this.cachePromise = caches.open('avatars');
+        }
+
+        async getAvatar(name) {
+          const cache = await this.cachePromise;
+          return cache.match(`/avatars/${name}.jpg`);
+        }
+      }
+
+      const storage = new Storage();
+      storage.getAvatar('jake').then(…);
+
+      // 箭头函数
+      const foo = async () => {};
+    
+    // await 
+    async function awaitTest() {
+      //正常情况下await命令后是一个primise对象如果不是,会被转成一个立即resolve的promise对象
+      let result = await Promise.resolve('执行成功');
+      console.log(result);
+      let result2 = await Promise.reject('执行失败');
+      console.log(result2);
+      let result3 = await Promise.resolve('还想执行一次');// 执行不了
+      console.log(result3);
+    }
+    awaitTest();
+  
+  
+    // 案例演示
+    async function sendXml(url) {
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          url,
+          type: 'GET',
+          success: data =>  resolve(data),
+          error: error => reject(error)
+        })
+      })
+    }
+
+    async function getNews(url) {
+      let result = await sendXml(url);
+      let result2 = await sendXml(result);
+      console.log(result, result2);
+    }
+    getNews('http://localhost:3000/news?id=2')
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+VS Code插件的种类
+在本文，我主要介绍专门针对JavaScript开发者的VS Code插件。有很多满足此条件的VS Code插件，当然我不会都作介绍。相反，我会着重介绍那些已经相当流行而且对JavaScript开发者来说必不可少的VS Code插件。为简单起见，我把它们分为10类。
+
+在这之中可能有你已经知道并且正在使用的插件，但也很有可能有一些是你听说过但未曾使用过的，我也希望通过本文能为你简要的介绍一下这些插件。
+
+1. 代码片段插件
+当你第一次安装VS Code时，它会附带一些JavaScript和TypeScript的代码片段。在你开始上手现代JavaScript之前，你将需要一些额外的代码片段来帮助你快速地编写ES6/ES7代码：
+
+VS Code JavaScript(ES6) snippets：当前最流行的，已有超过120万的下载量。这个插件为JavaScript、TypeScript、HTML、React和Vue提供了ES6的语法支持。
+JavaScript Snippet Pack：提供了有用的JavaScript代码片段集合。（这个链接打不开了）
+Atom JavaScript Snippet：移植自Atom的JavaScript插件。
+JavaScript Snippets：提供了ES6代码片段的集合。它包含对Mocha、Jasmine等其他BBD(Behavior-Driven Development)测试框架的支持。
+
+2. 语法高亮插件
+VS Code自带很好的JavaScript代码语法高亮。你可以通过安装主题改变这些颜色。然而，如果你想要更高水平的可读性，就得安装语法高亮的插件了。这里有一些：
+
+JavaScript Atom Grammar：它用Atom编辑器里的JavaScript语法高亮替换VS Code原来的。
+Babel JavaScript：支持ES201X、React、FlowType以及GraphQL的语法高亮。
+DotENV：支持.env文件语法高亮，在你使用Node时会非常有用。
+3. 代码检测插件
+以最小的烦恼高效编写JavaScript代码，需要一个代码检测(linter)工具。它强制团队所有成员遵循特定的代码规范。ESLint是最受欢迎的，它支持许多代码风格，包括Standard、Google和Airbnb的JavaScript代码规范。这里是最流行的VS Code代码检查插件：
+
+ESLint：这个插件把ESLint集成到VS Code中。它是最流行的代码检测插件，已有超过670万下载量。它的规则在.eslintrc.json里配置。
+JSHint：基于JSHint的代码检测插件。在项目跟目录下使用.jshintrc文件作为其配置。
+JavaScript Standard Style：零配置和严格规则的代码检测，强制使用StandardJS规则。
+如果你想查看对各种代码检测优缺点的综述，可以来看看我们对代码检测工具的比较。
+
+4. Node插件
+每一个JavaScript项目都需要至少一个Node package，除非你是那种喜欢以艰难的方式做事的人。这里有一些VS Code插件，能帮你更容易的处理Node模块。
+
+npm：用package.json来校验安装的npm包，确保安装包的版本正确，对缺少package.json文件的包或者未安装的包给出高亮提示。
+Node.js Modules IntelliSense：提供JavaScript和TypeScript导入声明时的自动补全。源码：vscode-node-module-intellisense。 
+　　
+
+Path IntelliSense：它其实与Node没有关系，但是你肯定需要对本地文件的智能提示，这个插件会自动补全文件名。
+Node exec：允许你用Node执行当前文件或者选中的代码。
+View Node Package：利用此插件可快速查看Node包源码，让你直接在VS Code中打开Node包的代码库或文档。
+Search node_modules：通常node_modules文件夹不在默认的搜索范围内，这个插件允许你搜索它。源码：vscode-search-node-modules。
+　　
+
+Import Cost：显示导入的包的大小。源码：import-cost。 
+　　
+
+5. 代码格式化插件
+有时，你发现自己会对以前写过的风格不太理想的代码做格式整理。为了节约时间，你可以安装以下任何的VS Code插件，来快速地格式化和重构现有代码：
+
+Beatufy：一个jsBeautifier的插件，支持JavaScript、JSON、CSS和HTML。可通过.jsbeautifyrc文件自定义。它是最流行的格式化工具，目前有230万的下载量。
+Prettier Code Formatter：利用Prettier的支持JavaScript、TypeScript和CSS的插件，目前有超过150万的下载量。
+JS Refactor：提供许多重构JavaScript代码的实用方法和操作，例如抽取变量和方法，把现有代码转为使用箭头函数和模板字符串的等价形式，导出函数等。
+JavaScript Booster：一款了不起的代码重构工具。拥有需要代码操作，比如把var转为const或者let，去除多余的else语句，合并声明和初始化。其灵感大量源于WebStorm的启发。源码：vscode-javascript-booster。
+　　
+
+6. 浏览器插件
+除非你是在用JavaScript写控制台程序，否则你多半会在浏览器中执行你的JavaScript代码。这意味着，你会频繁地刷新浏览器以观察每次你更新代码的效果。这里有一些工具，能极大地减少你开发时的这种重复流程，而不是每次都手动刷新浏览器：
+
+ 
+
+Debugger for Chrome：在编辑器中打断点，让你轻松地在Chrome里调试JavaScript。源码：vscode-chrome-debug。 
+　　
+
+Live Server：开启本地开发时服务器，为静态和动态页面提供实时刷新功能。源码：vscode-chrome-debugvscode-live-server。 
+　　
+
+Preview on Web Server：提供web服务器和实时预览功能。
+PHP Server：对测试只能在客户端运行的JavaScript代码很有用。
+Rest Client：相较于用浏览器或者一个CURL程序来测试你的REST API端点，你可以安装这个工具，直接在编辑器里相互性地发HTTP请求。
+ 
+
+7. 框架类插件
+ 
+
+对于大多数项目，你会使用合适的框架去构建你的代码，以减少开发时间。VS Code通过插件对大多数主流框架都做了支持。然而，仍有一些特定框架没有得到完全的支持。下面是一些提供了强大功能的VS Code插件。
+
+ 
+
+Angular 6：提供Angular 6的代码片段，支持TypeScript、HTML、Angular Material ngRx、RxJS和Flex Layout。目前有220多万的下载量和172个Angular代码片段。
+Angular v5 snippets：提供针对TypeScript、RxJS、HTML和Docker文件的代码片段。目前有270多万的下载量。
+React Native/React/Redux snippets for es6/es7：提供对这些框架的ES6/ES7语法的代码片段。
+React Native Tools：为React Native框架提供代码智能提示、命令行工具和调试特性。
+Vetur：为Vue框架提供语法高亮、代码片段、Emmet、代码检测、智能提示和调试支持。它带有很好的发布在GitBook上的文档。
+Ember：为Ember提供了命令行支持和智能提示。安装完后，所有ember cli的命令可直接在VS Code自己的命令行列表中使用。
+Cordava Tools：支持Cordava插件和Ionic框架，提供基于Cordova的项目的智能提示、调试已经其他特性的支持。
+jQuery Code Snippets：提供了超过130个jQuery的代码片段，使用jq前缀来激活。
+
+
+8. 测试类插件
+测试是软件开发中的关键环节，对于生产阶段的项目来说更是如此。你可以通过阅读我们的指南-JavaScript测试：单元测试 vs 功能测试 vs 集成测试-来获得对JavaScript测试的一个概观。这里有一些针对测试的VS Code插件：
+
+Mocha sidebar：利用Mocha库为项目提供单元测试。这个框架帮你直接在代码里跑测试，把错误信息以装饰器形式显示出来。
+ES Mocha Snippets：提供ES6语法的Mocha代码片段。这个插件的重点在于利用箭头函数，尽可能减少花括号的使用，保持代码的紧凑。可通过设置允许使用分号。
+Jasmine Code Snippets：针对Jasmine测试框架的代码片段。
+Protractor Snippets：针对Protractor端到端测试框架的代码片段。支持JavaScript和TypeScript。
+Node TDD：为Node和JavaScript项目提供测试驱动开发的支持。能在源码的更新后，立即触发自动化测试的构建。源码：node-tdd
+
+9. 其他棒棒的插件
+我把下一批VS Code的插件归为"厉害的"(awesome)这一类，因为这个描述恰到好处。
+
+Quokka.js：非常厉害的调试工具，为JavaScript提供了快速构建原型的演练场，并且附带有很好的文档。
+Paste as JSON：快速地将JSON数据转为JavaScript代码。源码：quick-type。 
+　　
+
+Code Metrics：这是另一个非常棒的插件，计算JavaScript和TypeScript代码中复杂度。源码：codemetrics。 
+　　
+
+　　
+
+　　
+
+10. 插件包
+现在我们来到了最后一类，我想让你知道，VS Code市场有有一个插件包的分类。本质上，它们是相关联的一些VS Code插件的集合，打成一个包，方便安装。这里有些较好的：
+
+Nodejs Extension Pack：这个包里有ESLint、npm、JavaScript(ES6) snippets、Search node_modules、NPM IntelliSense和Path IntelliSense。
+VS Code for Node.js - Development Pack：这个包含NPM IntelliSense、ESLint、Debugger for Chrome、Code Metrics、Docker和Import Cost。
+Vue.js Extension Pack：一些Vue和JavaScript插件的集合。目前它含有12个VS Code的插件，有一些之前我们没有提到的，比如auto-rename-tag和auto-close-tag。
+Ionic Extesion Pack：这个包里有针对Ionic、Angular、RxJS、Cordova和HTML开发的插件。
+SpreadJS纯前端表格组件：可嵌入你系统的在线Excel，功能布局与 Excel 高度类似，完全兼容 Excel 的 450 种公式和 92 种图表。
+
+
+
+HTML Snippets
+超级实用且初级的 H5代码片段以及提示
+图片描述
+
+HTML CSS Support
+让 html 标签上写class 智能提示当前项目所支持的样式
+新版已经支持scss文件检索
+图片描述
+
+Debugger for Chrome
+让 vscode 映射 chrome 的 debug功能，静态页面都可以用 vscode 来打断点调试，真666~ 
+配置稍微复杂一些，哪天心情好我再另写教程吧~
+
+jQuery Code Snippets
+jquery 重度患者必须品，废话不多说，上图
+图片描述
+
+vscode-icon
+让 vscode 资源树目录加上图标，必备良品！
+图片描述
+
+Path Intellisense
+自动路劲补全，默认不带这个功能的，赶紧装
+687474703a2f2f692e67697068792e636f6d2f696148655569446554555a756f2e676966
+
+Npm Intellisense
+require 时的包提示（最新版的vscode已经集成此功能）
+auto_complete.gif
+
+Document this
+js 的注释模板 （注意：新版的vscode已经原生支持,在function上输入/** tab）
+图片描述
+
+ESlint
+ESlint 接管原生 js 提示，可以自定制提示规则。这个比较高玩，不会的就算了，
+详情配置请看我的另一篇文章 https://segmentfault.com/a/11...
+
+HTMLHint
+html代码检测
+hero.png
+
+Project Manager
+在多个项目之前快速切换的工具
+
+beautify
+格式化代码的工具
+
+Bootstrap 3 Sinnpet
+常用 bootstrap 的可以下
+
+Atuo Rename Tag
+修改 html 标签，自动帮你完成尾部闭合标签的同步修改，不过有些bug。
+usage.gif
+
+GitLens
+丰富的git日志插件
+图片描述
+
+fileheader
+顶部注释模板，可定义作者、时间等信息，并会自动更新最后修改时间
+图片描述
+
+filesize
+在底部状态栏显示当前文件大小，点击后还可以看到详细创建、修改时间
+_Y52O-UfkK.jpg
+
+Bracket Pair Colorizer
+让括号拥有独立的颜色，易于区分。可以配合任意主题使用。
+图片描述
+
+Vue插件
+以下推荐vue框架所需的插件
+
+vetur
+语法高亮、智能感知、Emmet等
+图片描述
+
+VueHelper
+snippet代码片段
+图片描述
+
+Import Cost
+引入包大小计算,对于项目打包后体积掌握很有帮助

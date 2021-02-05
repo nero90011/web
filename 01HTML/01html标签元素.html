@@ -1,0 +1,127 @@
+<!DOCTYPE html><!--文档类型 html:html5   发展史html1 html2.0 html3.2 html4.0.1 xhtml1.0 xhtml2.0 html5-->
+<html lang="en"><!--中文标识-->
+<head>
+    <meta charset="utf-8 "/><!--html5字符集写法 告诉浏览器要使用的字符集，无结束标签，没有可能乱码 utf-8万国码 gb2312中国-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>  <!--自适应，宽度为当前设备的宽度。缩放比例为1不缩  -->
+    <meta name="keywords" content="HTML5,JavaScript,111"/>   <!--网页关键字-->
+    <meta name="description" content="发布前端知识"/>             <!--网页的描述-->
+    <!--<meta http-equiv="refresh" content="5;url=http://www.baidu.com"/>--><!--网页的重定向-->
+
+    <base target="_blank_"><!--点击超链接后默认方式,集体设置 优先级低-->
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">  <!--引入css文件-->
+
+</head>
+<body>
+
+<!-- 注释标签 -->
+
+<div caption="标题" class="" id=""></div><!--块元素 独占一行 页面布局-->
+<span>讲几个元素放一起，或用此为一个元素的不同部分制定样式</span><!--内联行内元素 只占自身大小 设置文本样式-->
+
+<h1>duanluo</h1><!--h1~h6 只能写一个h1-->
+
+<p>hang</p><!--再多的空格html5只会当成一个空格 换行也是一个空格   p里不能有块级引用-->
+
+<br/><!--换行 自结束标签-->
+<hr/><!--水平线-->
+
+<img src="#" alt="当图片无法加载时显示的文本"/><!--最好加上/否则Xhtml无法识别 不写alt属性搜索引擎不会对img中的图片进行收录-->
+
+
+<a href="#" target="_blank新窗口 _self默认  等">超链接</a>
+<a href="#id属性值"></a><!--去指定位置 id属性 a不是块元素-->
+
+<abbr>缩略词，当鼠标移到上面会出现解释或者提醒</abbr>
+
+上标 2的二次方：<p> 2<sup>2</sup></p>
+下标： <sub></sub>
+删除线
+<delete></delete>
+下划线
+<ins></ins>
+格式域+代码域，保存代码格式
+<pre><code>  </code></pre>
+
+<i>斜体</i>
+<u>下划线</u>
+<em>斜体，语气强烈</em>
+<strong>显示为粗体内容更强烈</strong>
+<i> 斜体用来好看</i>
+<b>加粗用来好看</b>
+<small>内容比父元素中的文字要小一些 用来放版权 合同 声明</small>
+<cite>加书名号的内容 书名 歌名等 《论语》</cite>
+
+<q>行内短引用的内容，浏览器会默认加上引号</q>
+<blockquote cite="主流浏览器不支持">长引用内容块级引用<cite>-鲁迅全集</cite></blockquote>
+
+
+<!--列表元素 -->
+<ol type="1 a/A i/I">
+    <li>有序列表</li>
+</ol>
+<!--块元素,ol ul dl之间可以互相嵌套-->
+<ul>
+    <li>无序列表</li>
+</ul>
+<!--Ul{
+List-style: none;
+}
+-->
+
+<dl><!--自定义-->
+    <dt> 被定义的内容 武松</dt>
+    <dd> 对定义内容的描述 景阳冈打虎英雄 战斗力99</dd>
+    <dd>后打死西门庆，后投奔梁山</dd>
+    <dt>武大</dt>
+    <dd>著名餐饮企业家 战斗力0</dd>
+    <dd>1111111111112</dd>
+</dl>
+
+
+<!--框架集合
+使用内联框架可以在一个网页中引入一个外部的页面
+-->
+<iframe src="demo02.html" width height name></iframe>
+
+<!--
+注意 不推荐使用
+因为内敛框架中的内容不会被搜索引擎检索
+
+• 在h5标准中，推荐使用框架集，而不是用内联框架
+使用frameset来创建一个框架集
+• 注意frameset不能和body出现在一个页面中
+-->
+
+<!--
+
+<frameset rows="50%,50%">
+    <frame src="01.biaoge.html" />
+    <frame src="02.biaoge.html" />
+</frameset>
+-->
+<!--
+• Rows  指定框架集中的所有框架，一行一行的排列
+○ 第一个frame站大小50%
+• Cols 指定框架集中的所有框架，一列一列的排列
+○ Cols="30%,*,30%"
+• frameset中可以嵌套frameset
+• 如果搜索引擎检索到的页面是一个框架页的话，它是不能去判断里面的
+内容的，使用框架集则意味着页面中不能有自己的内容，只能引入其他的页面，而我们单独加载一个页面浏览器都需要重新发送一次请求，引入几个页面就需要发送几次请求
+-->
+
+</body>
+</html>
+
+<!--html:4s  html:xt html:5-->
+<!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+</html>-->

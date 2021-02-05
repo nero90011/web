@@ -1,0 +1,44 @@
+{
+    "code": 200,
+    "msg": "查询成功",
+    "data": [
+      {
+        "id": 33,
+        "uid": 9,
+        "sid": 14,
+        "cid": {
+          "chooses": "0%5Btext%5D=%E6%B8%85%E6%B1%A4&0%5Bcolor%5D=green&1%5Btext%5D=%E9%BA%BB%E8%BE%A3&1%5Bcolor%5D=purple&2%5Btext%5D=%E7%89%9B%E6%B2%B9&2%5Bcolor%5D=indigo&3%5Btext%5D=%E7%95%AA%E8%8C%84&3%5Bcolor%5D=cyan",
+          "id": 1,
+          "title": "海底捞火锅底料",
+          "imgs": "0=http%3A%2F%2Fminio.sc.test%2Fwwwsctest%2Faf6a52def40e5ef29b0280e011ae0823.jpg",
+          "num": 1000,
+          "ishot": 0,
+          "money": 15
+        },
+        "num": 4,
+        "choose": "麻辣",
+        "created": "2020-04-21T14:10:48.000Z",
+        "updatedOn": "2020-04-21T14:10:48.000Z",
+        "deletionDate": null
+      },
+      {
+        "id": 34,
+        "uid": 9,
+        "sid": 14,
+        "cid": {
+          "chooses": "0%5Btext%5D=%E6%B8%85%E6%B1%A4&0%5Bcolor%5D=green&1%5Btext%5D=%E9%BA%BB%E8%BE%A3&1%5Bcolor%5D=purple&2%5Btext%5D=%E7%89%9B%E6%B2%B9&2%5Bcolor%5D=indigo&3%5Btext%5D=%E7%95%AA%E8%8C%84&3%5Bcolor%5D=cyan",
+          "id": 1,
+          "title": "海底捞火锅底料",
+          "imgs": "0=http%3A%2F%2Fminio.sc.test%2Fwwwsctest%2Faf6a52def40e5ef29b0280e011ae0823.jpg",
+          "num": 1000,
+          "ishot": 0,
+          "money": 15
+        },
+        "num": 4,
+        "choose": "清汤",
+        "created": "2020-04-21T14:32:59.000Z",
+        "updatedOn": "2020-04-21T14:33:46.000Z",
+        "deletionDate": null
+      }
+    ]
+  }

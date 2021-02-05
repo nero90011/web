@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-01-09 13:20:31
+ * @LastEditTime: 2019-08-13 13:08:18
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_原型链</title>
+</head>
+<body>
+<!--
+1. 原型链(图解)
+  * 访问一个对象的属性时，
+    * 先在自身属性中查找，找到返回
+    * 如果没有, 再沿着__proto__这条链向上查找, 找到返回
+    * 如果最终没找到, 返回undefined
+  * 别名: 隐式原型链
+  * 作用: 查找对象的属性(方法)
+2. 构造函数/原型/实体对象的关系(图解)
+3. 构造函数/原型/实体对象的关系2(图解)
+
+* 函数的prototype属性: 在定义函数时自动添加的, 默认值是一个空Object对象
+  * 对象的__proto__属性: 创建对象时自动添加的, 默认值为构造函数的prototype属性值
+-->
+<script type="text/javascript">
+  /* 创造函数时添加的方法不包含在prototype中 */
+  function Fn() {
+    this.test1=function () {
+      console.log('test1()')
+    }
+  }
+  console.log(Fn.prototype) 
+
+  /* 此种 方式添加的方法显示原型中才有 */
+  Fn.prototype.test2=function () {
+    console.log('test2()')
+  }
+  var fn=new Fn()
+  fn.test1()
+  fn.test2()
+  console.log(fn.toString())
+  console.log(fn.test3)
+
+  /**
+   * 函数的显示原型指向的对象:默认是空的Object实例对象 但Object不满足
+   */
+  console.log(  Fn.prototype instanceof Object )//true
+  console.log(Objce.prototype instanceof Object)//false
+  console.log(Function.prototype instanceof Object)//true
+  /**
+   * 所有函数都是Function的实例 包含它本身
+   */
+  console.log(Function.__proto__===Function.prototype)//可以用来检测是否是实例
+  /**
+   * Object的原型对象是原型链的尽头
+   */
+  console.log(Object.prototype.__proto__)//null
+</script>
+</body>
+</html>

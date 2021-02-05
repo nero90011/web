@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      fetch("./data.json", {
+        method: "GET",
+        mode: "cors",
+        credentials: "include" //一个字符串，指示是否始终，从不或仅在将其发送到同源URL时与请求一起发送凭证。设置请求的凭据。
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          console.log(res);
+        });
+    </script>
+  </body>
+</html>

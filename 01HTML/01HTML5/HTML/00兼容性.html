@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-08-23 09:00:37
+ * @LastEditTime: 2019-08-23 09:03:01
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 在不支持HTML5新标签的浏览器，会将这些新的标签解析成行内元素(inline)对待，所以我们只需要将其转换成块元素(block)即可使用。
+
+但是在IE9版本以下，并不能正常解析这些新标签，但是可以识别通过document.createElement('tagName')创建的自定义标签。于是我们的解决方案就是：将HTML5的新标签全部通过document.createElement('tagName')来创建一遍，这样IE低版本也能正常解析HTML5新标签了。
+
+当然，在实际开发中我们更多采用的办法是：检测IE浏览器的版本，来加载第三方的JS库来解决兼容问题（如上方代码所示）。 -->
+    <!-- l：less 更小
+
+          t：than 比
+
+          e：equal等于
+
+          g：great 更大 -->
+    <!--  条件注释 只有ie能够识别-->
+
+    <!--[if lte ie 8]>
+        <script src="html5shiv.min.js"></script>
+    <![endif]-->
+</body>
+
+</html>

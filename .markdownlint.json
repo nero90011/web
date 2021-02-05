@@ -1,0 +1,7 @@
+{
+  "default": true,
+  "MD003": { "style": "consistent" },
+  "MD007": false,
+  "no-hard-tabs": false,
+  "MD013": false
+}

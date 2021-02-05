@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-08-23 09:04:02
+ * @LastEditTime: 2019-08-23 09:57:10
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+    <!-- 表单标签_____________________________________________ -->
+    <input type="text" placeholder="请输入明星" list="star">
+    <!-- 数据列表 -->
+    <datalist id="star">
+        <!--与input建立连接  用id-->
+        <option>刘德华</option>
+        <option>刘若英</option>
+        <option>张学友</option>
+    </datalist>
+    <br /><br /><br /><br />
+
+    <!--表单分组打包-->
+    <fieldset>
+        <!-- 表单定义标题 -->
+        <legend>HTML5新增的INPUT type类型 内些表单</legend>
+        <form action="">
+            <!--email tel url number search range time date datetime month week-->
+            邮箱:<input type="email"><br /><!-- 必须输入邮箱地址 -->
+            手机:<input type="tel"><br />
+            数字:<input type="number"><br /><!-- 必须 -->
+            网址:<input type="url"><br />
+            搜索:<input type="search"><br />
+            滑块:<input type="range"><br />
+            拾色器:<input type="color"><br />
+            时间:<input type="time"><br />
+            日期:<input type="date"><br />
+            时间日期:<input type="date"><br />
+            datetime:<input type="datetime"><br />
+            datetime-local<input type="datetime-local"><br />
+            month:<input type="month"><br />
+            week:<input type="week"><br />
+            <!-- a.date：选取日、月、年
+                b.month：选取月、年
+                c.week：选取周和年
+                d.time：选取时间（小时和分钟）
+                e.datetime：选取时间、日、月、年（UTC时间）
+                f.datetime-local：选取时间、日、月、年（本地时间） 
+                -->
+            <input type="submit">
+        </form>
+    </fieldset>
+
+    <!--增强型表单 及新表单属性_____________________________________-->
+    <!-- 
+        placeholder 提供对输入域的提示值
+        required 规定表单提交前输入域是否必填
+        pattern 规定用于验证input域的正则表达式
+        min 规定输入域允许的最小值
+        max 规定输入域允许的最大值
+        multiple 输入域可以选择多个值，适用于email和file类型
+     -->
+    <label>
+        <input type="text" placeholder="占位符">
+        <!--页面加载完时,自动获得焦点-->
+        <input type="text" autofocus>
+        <!--多文件上传-->
+        <input type="file" multiple>
+        <br />
+        <form action="">
+            <!--记录表单,下次自动填写 要求:首先需要提交按钮 其次必须有个name值
+                默认值on
+                为了安全 可以设置为off 不会提示了
+                公共场合不提倡使用
+
+                也可以设置给form,需要开的input on
+                其他off
+            -->
+            <input type="text" name="username" autocomplete>
+            <input type="submit">
+        </form>
+        <!--必填项-->
+        <input type="text" required>
+        <!--规定激活 是元素获得焦点的跨界见 alt+  s-->
+        <input type="text" accesskey="s">
+    </label><br />
+</body>
+</html>

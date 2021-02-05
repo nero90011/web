@@ -1,0 +1,48 @@
+### header与json中间必须有空行
+### 此插件有bug,请全手写
+### 需要token的: Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5lcm8iLCJzdWIiOjQsImlhdCI6MTU4Njg0MzQyMywiZXhwIjoxNTg2ODcyMjIzfQ.OIO5klAhRxG5V6-4mp9lfD3m9LlkDfPeRcl69liA8XM
+
+### 注册接口测试
+POST http://localhost:3000/api/user/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "rusername":"nero900111",
+    "rpwd":"Sccba601412;",
+    "reppwd":"Sccba601412;",
+    "rphone": "15069402097",
+    "rpid":"3"
+}
+### 登录接口测试  进行登录 测试 pipe class
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "lusername":"admin1",
+    "lpassword":"Sccba601412;"
+}
+
+### 根据name查询用户 接口测试  测试 rbac
+POST http://localhost:3000/api/user/name HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInN1YiI6MiwiaWF0IjoxNTg2ODU2Nzg4LCJleHAiOjE1ODY4ODU1ODh9.yMZlB7lgQspLg6Z8Miyb6Yij21Cc2R_-5LZTndWUOdM
+
+{
+    "name":"nero"
+}
+
+### 根据用户id查询购物车 接口测试 
+POST http://localhost:3000/api/user/name HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer
+
+{
+    "name":"nero"
+}
+
+### 
+# POST https://api.example.com/login HTTP/1.1
+# Content-Type: application/x-www-form-urlencoded
+
+# name=foo
+# &password=bar

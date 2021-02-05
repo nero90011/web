@@ -1,0 +1,63 @@
+{
+    "code": 200,
+    "msg": "查询成功",
+    "data": [
+        {
+            "id": 6,
+            "uuid": "2020042501150883",
+            "uid": 9,
+            "comid": null,
+            "money": 12015,
+            "location": "四川省德阳市什邡市425673",
+            "status": 1,
+            "sid": 14,
+            "num": 1,
+            "choose": "麻辣",
+            "cid": 1,
+            "title": "海底捞火锅底料",
+            "img": "http://minio.sc.test/wwwsctest/af6a52def40e5ef29b0280e011ae0823.jpg",
+            "onemoney": 15,
+            "created": "2020-04-24T17:15:08.000Z",
+            "updatedOn": "2020-04-24T17:15:08.000Z",
+            "deletionDate": null
+        },
+        {
+            "id": 7,
+            "uuid": "2020042501150883",
+            "uid": 9,
+            "comid": null,
+            "money": 12015,
+            "location": "四川省德阳市什邡市425673",
+            "status": 1,
+            "sid": 14,
+            "num": 2,
+            "choose": "粉色",
+            "cid": 2,
+            "title": "惠普暗影精灵6代",
+            "img": "http://minio.sc.test/wwwsctest/cc777fd25dab52d899178b4bed6539bb.jpg",
+            "onemoney": 6000,
+            "created": "2020-04-24T17:15:09.000Z",
+            "updatedOn": "2020-04-24T17:15:09.000Z",
+            "deletionDate": null
+        },
+        {
+            "id": 8,
+            "uuid": "20200425124351518",
+            "uid": 9,
+            "comid": null,
+            "money": 200,
+            "location": "四川省德阳市什邡市425673",
+            "status": 1,
+            "sid": 14,
+            "num": 2,
+            "choose": "100",
+            "cid": 4,
+            "title": "1000MB路由器",
+            "img": "http://minio.sc.test/wwwsctest/1fecd6dcb512567aac792e98dcb594ed.jpg",
+            "onemoney": 100,
+            "created": "2020-04-25T04:43:51.000Z",
+            "updatedOn": "2020-04-25T04:43:51.000Z",
+            "deletionDate": null
+        }
+    ]
+}

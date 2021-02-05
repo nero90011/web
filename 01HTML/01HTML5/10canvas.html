@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-06-03 13:02:28
+ * @LastEditTime: 2019-08-22 15:13:08
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: pink;
+        }
+
+        #test {
+            background-color: darkgray;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="test" width="1000" height="1000">
+        <!-- 宽高不能使用css设置,最好不要加px -->
+        <span>替换内容:您的浏览器不支持画布元素,请您换成chrome</span>
+    </canvas>
+</body>
+<script>
+    'use strict';
+
+    // canvas只支持一种原生的图形绘制:矩形, 所有其他图形的回值至少需要生成一条路径
+    // 性能极高,不会删除,会叠加,不会异步是同步思想,颜色设置必须立马设置
+    // 有别于浏览器本身的渲染机制
+
+    window.onload = function onload() {
+        // querySelector有坑
+        const canvas = document.querySelector('#test');
+        // 获取2d绘制工具
+        if (canvas.getContext) {
+            const context = canvas.getContext('2d');
+
+            /**
+                    矩形
+                */
+            // 设置填充颜色 fillapi相关
+            context.fillStyle = 'deeppink';
+            // 填充的矩形绘制,不用加单位
+            context.fillRect(10, 10, 100, 100);
+            // 线体颜色
+            context.strokeStyle = 'red';
+            // 线体粗细 ,向外挤
+            context.lineWidth = 10;
+            context.lineJoin = 'round'; // round圆角 bevel 斜角 miter直角
+            // 边框矩形绘制 会在偏移量处向上0.5向下0.5
+            // css不支持小数,会向上取整
+            // 一像素边框: 100.5-100.5
+            context.strokeRect(100.5, 100.5, 100, 100);
+
+            // 矩形透明擦除,不删除原来,只是叠加,性能好
+            context.clearRect(100.5, 100.5, 100, 100);
+            // x,y:相对于父类 width,height
+
+            /**
+
+                    绘制路径
+
+                */
+            context.strokeStyle = 'black';
+            context.fillStyle = 'black';
+            context.lineWidth = 10; // 线条,需要stroke
+
+            context.moveTo(50, 50); // 设置起点,抬起画笔移动
+            context.lineTo(50, 100); // 移动画笔绘制
+            context.lineTo(100, 100);
+            context.closePath(); // 关闭路径
+            context.stroke(); // 画线,不自动闭合,需要closePath
+
+            context.beginPath(); // 清空路径容器,让上下不相干
+
+            context.moveTo(200, 200);
+            context.lineTo(200, 300);
+            context.lineTo(300, 300);
+            context.fill(); // 填充,自动闭合
+
+            context.beginPath();
+            // 使用路径 绘制矩形
+            context.rect(50, 50, 100, 100);
+            // context.fill();
+            context.stroke();
+
+            // linecap绘制开始和结束样式
+            context.strokeStyle = 'pink';
+            context.lineWidth = 10;
+            context.lineCap = 'round'; // butt方形 | round | square
+            context.moveTo(400, 400);
+            context.lineTo(400, 500);
+            context.stroke();
+
+            /**
+
+                    save & restore
+
+                    save
+                    样式设置
+                    beginPath
+                    路径设置
+                    restore
+
+                */
+            context.save(); // 压栈,把样式相关压进去
+            context.fillStyle = 'pink';
+            context.beginPath();
+            context.fillRect(500, 500, 100, 100);
+            context.restore(); // 出栈,出栈的颜色就是即将使用的颜色
+
+            context.save();
+            context.fillStyle = 'blue';
+            context.beginPath();
+            context.fillRect(600, 600, 200, 200);
+            context.restore();
+        }
+    };
+    // canvas画布上的图形,css无法介入,只能使用
+</script>
+
+</html>

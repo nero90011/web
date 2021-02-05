@@ -1,0 +1,45 @@
+node_modules
+30job
+.vscode/.myRedis.redis
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+SampleTest.*
+
+##此文件不起作用时,使用一下方法:
+##git rm -r --cached .
+##git add .
+##git commit -m ‘gitignore’
+
+##openssl
+00openssl
+00ssl

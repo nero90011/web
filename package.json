@@ -1,0 +1,36 @@
+{
+  "name": "webstrom",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nero90011/web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nero90011/web/issues"
+  },
+  "homepage": "https://github.com/nero90011/web#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nuxt-vuex-localstorage": "^1.2.6"
+  },
+  "dependencies": {
+    "-": "0.0.1",
+    "eslint-plugin-html": "^6.0.0",
+    "express": "^4.17.1",
+    "g": "2.0.1",
+    "prettier": "2.0.4"
+  }
+}

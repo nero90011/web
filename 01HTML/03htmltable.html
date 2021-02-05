@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <!--默认没有边框
+块元素
+Width:300px
+Margin: 0 auto;
+Border:1px solid black;
+Border-spacing:5px;边框距离
+Border-collapse:collapse;可以用来设置表格的边框合并
+        • 设置了此值则border-spacing自动无效
+使用奇数或者偶数选择器设置隔行变色
+如果表格中没有写tbody
+浏览器会自动在表格中添加tbody
+并且把所有的tr放在tbody中
+所以注意tr并不是table的子元素，而是tbody的子元素
+通过table>tr无法选中行 需要通过
+Tbody>tr选中
+-->
+    <tr>
+        <th>表头，加粗居中</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr>行
+        <td>单元格</td>
+        <td>单元格</td>
+        <td>单元格</td>
+        <td>单元格</td>
+    </tr>
+
+    <tr>行
+        <td>单元格</td>
+        <td>单元格</td>
+        <td rowspan="纵向合并单元格">
+            单元格</td>
+
+    </tr>
+
+
+    <tr>行
+        <td>单元格</td>
+        <td>单元格</td>
+        <td colspan="横向合并单元格">单元格</td>
+    </tr>
+
+</table>
+
+
+<table>
+    <!--thead永远显示在表格的头部
+tfoot永远都会显示在表格的底部
+tbody中的内容，永远都会显示在中间
+
+如果表格中没有写tbody
+浏览器会自动在表格中添加tbody
+并且把所有的tr放在tbody中
+所以注意tr并不是table的子元素，而是tbody的子元素
+通过table>tr无法选中行 需要通过
+Tbody>tr选中
+-->
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+
+    </tbody>
+
+    <tfoot>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+
+
+    </tfoot>
+</table>
+
+</body>
+</html>

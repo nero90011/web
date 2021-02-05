@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--input type
+    text
+    password
+    radio
+    checkbox
+    button
+    submit
+    reset
+    image图像形式提交按钮
+    file
+
+    name
+    value
+    size宽度
+    checked默认选中
+    maxlength 最多字符数
+-->
+
+
+/*web表单*/
+<form action="target.html"></form>
+/*表单项分组*/
+<fieldset>
+    <legend>组名</legend>
+</fieldset>
+<fieldset>
+    <legend>组名</legend>
+</fieldset>
+
+
+<label>
+    /*密码框*/
+    <input type="password" name="password"/>
+</label>
+
+/*文本框  for用来指定跳转到label中的第几个input*/
+/*• 专门用来选中表单中的提示文字*/
+<label for="um">用户名</label>
+
+/*• placeholder="初始文字"
+• required设置此表单为必填
+• value="文本框默认值"*/
+<input id="um" type="text" placeholder="初始文字" required="必填提示" value="文本框默认值"/>
+
+<label>
+    /*文本域*/
+    <textarea name="info">
+</textarea>
+</label>
+
+
+/*提交按钮*/
+/*• 要想表单项中的数据会提交到服务器中，还必须给表单项指定一个name属性 那么表示提交内容的名字
+• 洪湖填写的信息会附在url地址的后边以查询字符串的形式发送给服务器
+• url地址？查询字符串
+○ 格式
+§ 属性名=属性值&属性名=属性值&属性名=属性值
+• Value=""按钮名称
+•*/
+<input type="submit" name="username后台决定" name="hello"/>
+
+/*重置按钮*/
+<input type="reset"/>
+/*按钮*/
+<input type="type" value="按钮"/>
+/*或者*/
+<button type='submit'>提交</button>
+<button type="reset">重置</button>
+
+/*样式:
+style="background-color:transparent;border:0;透明无边框*/
+
+/*<!--单选按钮-->*/
+<label><input type="radio" name="1-2" value="male" id="male"/>nan</label>
+<label for="male">用户名</label>
+
+/*• Value:像这种需要用户选择但是不需要用户直接填写内容的表单项，还必须指定一个value属性，这样被选中的表单项的value属性值将会最终提交给服务器
+• Checked="cheked"默认选择项*/
+<label><input type="radio" name="1-2" value="female" Checked="cheked"/>nv</label>
+
+/*<!--多选按钮-->*/
+<label><input type="checkbox" name="duoxuan" value="1" Checked="cheked"/>1</label>
+<label><input type="checkbox" name="duoxuan" value="2" Checked="cheked"/>2</label>
+<label><input type="checkbox" name="duoxuan" value="3"/>3</label>
+
+<label>
+    /*下拉列表*/
+    /*• selected="selected"默认选择项
+    • optgroup分组 label分组名称*/
+    <select name="star">
+        <optgroup label="nvmingxing">
+            <option value="malong" selected="selected">malong</option>
+            <option value="zhangjike">zhangjike</option>
+            <option value="liuguoliang">liuguoliang</option>
+        </optgroup>
+        <optgroup label="nanmingxing">
+            <option value="dn">dingning</option>
+            <option value="xc">xiaocao</option>
+            <option value="zyn">zhangyining</option>
+        </optgroup>
+
+    </select>
+</label>
+
+
+
+</body>
+</html>

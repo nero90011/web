@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--
+ * @Author: liuZiHao Nero
+ * @Github: https://github.com/nero90011
+ * @E-mail: 601412402@qq.com
+ * @Company: myself
+ * @Date: 2019-01-09 13:20:30
+ * @LastEditTime: 2020-03-29 16:59:56
+ * @LastEditors: Do not edit
+ * @Description: 
+ -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>02_数据_变量_内存</title>
+  </head>
+
+  <body>
+    <!--
+1. 什么是数据?
+  * 存储在内存中代表特定信息的'东东', 本质上是0101...
+  * 数据的特点: 可传递, 可运算
+  * 一切皆数据
+  * 内存中所有操作的目标: 数据
+    * 算术运算
+    * 逻辑运算
+    * 赋值
+    * 运行函数
+2. 什么是内存?
+  * 内存条通电后产生的可储存数据的空间(临时的)
+  * 内存产生和死亡: 内存条(电路版)==>通电==>产生内存空间==>存储数据==>处理数据==>断电==>内存空间和数据都消失
+  * 一块小内存的2个数据
+     * 内部存储的数据
+     * 地址值
+  * 内存分类
+    * 栈: 全局变量/局部变量   代码->编译->解析执行 标识对象的变量
+    * 堆: 对象
+3. 什么是变量?
+  * 可变化的量, 由变量名和变量值组成
+  * 每个变量都对应的一块小内存, 变量名用来查找对应的内存, 变量值就是内存中保存的数据
+4. 内存,数据, 变量三者之间的关系
+  * 内存用来存储数据的空间
+  * 变量是内存的标识
+-->
+    <script type="text/javascript">
+      var age = 18;
+      console.log(age);
+
+      var obj = {
+          name: 'Tom'
+      };
+      console.log(obj.name);
+
+      function fn() {
+          var obj = {
+              name: 'Tom'
+          };
+      }
+
+      var a = 3;
+      var b = a + 2;
+    </script>
+    <!--
+  问题: var a = xxx, a内存中到底保存的是什么?
+    * xxx是基本数据, 保存的就是这个数据
+    * xxx是对象, 保存的是对象的地址值
+    * xxx是一个变量, 保存的xxx的内存内容(可能是基本数据, 也可能是地址值)
+-->
+    <script type="text/javascript">
+      var a = 3;
+      a = function () {};
+
+      var b = 'abc';
+      a = b;
+      b = {};
+      a = b;
+    </script>
+    <!--
+关于引用变量赋值问题
+  * 2个引用变量指向同一个对象, 通过一个变量修改对象内部数据, 另一个变量看到的是修改之后的数据
+  * 2个引用变量指向同一个对象, 让其中一个引用变量指向另一个对象, 另一引用变量依然指向前一个对象
+-->
+    <script type="text/javascript">
+      /**
+       * 2个引用变量指向同一个对象, 通过一个变量修改对象内部数据, 另一个变量看到的是修改之后的数据
+       * @type {{name: string}}
+       */
+      var obj1 = {
+          name: 'Tom'
+      };
+      var obj2 = obj1;
+      obj2.age = 12;
+      console.log(obj1.age);
+
+      function fn(obj) {
+          obj.name = 'A';
+      }
+      fn(obj1);
+      console.log(obj2.name);
+
+      var a = {
+          age: 12
+      }; // a指向一个对象
+      var b = a; // b也指向a指向的对象
+      a = {
+          name: 'bob',
+          age: 13
+      }; // a重新指向了另外一个对象
+      // b.age=14  //14 bob 13//b修改了b指向对象的其中age键对应的值
+      console.log(b.age, a.name, a.age); // 12 bob 13
+      /**
+       * 2个引用变量指向同一个对象, 让其中一个引用变量指向另一个对象, 另一引用变量依然指向前一个对象
+       */
+      function fun2(obj) {
+          // obj=a
+          obj = {
+              age: 15
+          }; // obj指向新的对象了
+      }
+      fn2(a);
+      console.log(a.age); // 输出a指向对象的age键对应的值
+    </script>
+    <!--
+问题: 在js调用函数时传递变量参数时, 是值传递还是引用传递
+  * 理解1: 都是值(基本/地址值)传递
+  * 理解2: 可能是值传递, 也可能是引用传递(地址值)
+-->
+    <script type="text/javascript">
+      var a = 3;
+
+      function fn(a) {
+          a += 1;
+      }
+      fn(a);
+      console.log(a);
+
+      function fn2(obj) {
+          console.log(obj.name);
+      }
+      var obj = {
+          name: 'Tom'
+      };
+      fn2(obj);
+    </script>
+    <!--
+问题: JS引擎如何管理内存?
+1. 内存生命周期
+  * 分配小内存空间, 得到它的使用权
+  * 存储数据, 可以反复进行操作
+  * 释放小内存空间
+2. 释放内存
+  * 局部变量: 函数执行完自动释放
+  * 对象: 成为垃圾对象==>垃圾回收器回收
+-->
+    <script type="text/javascript">
+      var a = 3;
+      var obj = {}; // 语句一二总共生成三个
+      // obj=null //语句一二三总共生成二个
+      obj = undefined; // 只有a存在了
+
+      function fn() {
+          var b = {}; // 局部变量函数执行时生成 执行完毕回收
+      }
+
+      fn(); // b是自动释放, b所指向的对象是在后面的某个时刻由垃圾回收器回收
+    </script>
+
+    <!-- 错误处理机制 
+      
+        
+    
+    -->
+    <script src="text/javascript">
+        /* Error实例对象 :最基础的错误类型对象
+            1.必须有一个message方法'
+            2.还有err.name err.stack
+            3.跑出Error实例对象以后整个程序就终端在发生错误的地方,不在往下执行
+        */
+        let err=new Error('出错了')
+        err.message//必须有一个message方法,表示出错时的提示信息
+        if(err.name){
+            console.log(err.name+":"+error.message);
+        }
+        /* 
+            其他错误类型:(派生错误)
+                SyntaxError:解析代码时发生语法错误
+                ReferenceError:对象引用一个不存在的变量时发生的错误
+                RangeErroe:对象是一个值超出有效范围时
+                TypeError:对象是变量或参数不是预期类型时发生的错误
+                URIError:uri相关函数参数不正确
+                EvalError:eval函数没有被正确执行
+
+        */
+
+        let err1=new RangeError("出错了,变量超出有效范围")
+        err1.message
+
+        /* 自定义错误 */
+        function UserError(message) {
+            this.message=message||'默认信息'
+            this.name='UserError'
+        }
+        UserError.prototype=new Error();
+        UserError.prototype.constructor=UserError;
+
+
+        /* throw 
+            手动中断程序执行,抛出一个错误
+            可以跑出任何类型的值
+        */
+       if(x<=0){
+           throw new Error('x必须正数')
+       }
+
+
+       /* try catch finally 
+            不管是否出现错误,都必须在最后运行finally代码块
+            先return 在finally
+       */
+       try {
+           foo.bar();
+       } catch (e) {
+           throw e
+           console.log(e);
+       }finally{
+
+       }
+    </script>
+  </body>
+</html>
